@@ -1,0 +1,135 @@
+
+## 📌 Project Title
+
+**AI Text Generation Demo using Hugging Face**
+
+---
+
+## 📝 Overview
+
+This is a **mini-project demo** for text generation using Hugging Face’s `transformers`.
+We use a small model (`distilgpt2`) to quickly test AI text generation inside a Python virtual environment.
+
+This is the **first working milestone** of Learnify-AI.
+
+---
+
+## ✅ Steps to Create Virtual Environment in Windows (PowerShell)
+
+1. Go to your project folder in **PowerShell**:
+
+```powershell
+cd "D:\My World\Mini Project\Learnify 01\Learnify-AI"
+```
+
+2. Create a virtual environment:
+
+```powershell
+python -m venv venv
+```
+
+3. Activate the virtual environment:
+
+```powershell
+.\venv\Scripts\Activate
+```
+
+You should see:
+
+```
+(venv) PS D:\My World\Mini Project\Learnify 01\Learnify-AI>
+```
+
+4. Install dependencies:
+
+```powershell
+pip install transformers datasets
+pip install torch
+```
+
+5. Run the demo with a simple file `app.py`:
+
+```python
+from transformers import pipeline
+
+# Load a small demo model
+generator = pipeline("text-generation", model="distilgpt2")
+
+result = generator("Hello, this is a Hugging Face demo:", max_length=50)
+print(result[0]['generated_text'])
+```
+
+Run it:
+
+```powershell
+python app.py
+```
+
+---
+
+## 🚀 How to Run the Interactive Demo (demo.py)
+
+Inside `Demo/demo.py` we have:
+
+```python
+from transformers import pipeline
+
+# Load the model
+generator = pipeline("text-generation", model="distilgpt2")
+
+while True:
+    question = input("You: ")
+    if question.lower() in ["stop", "exit", "quit"]:
+        print("AI: Goodbye! 👋")
+        break
+
+    result = generator(question, max_length=50)
+    print("AI:", result[0]['generated_text'])
+```
+
+Usage:
+
+```
+You: Tell about yourself
+AI: Tell about yourself … (generated text continues)
+
+You: exit
+AI: Goodbye! 👋
+```
+
+---
+
+## ⚠️ Notes
+
+* First run downloads \~350 MB model → you’ll see a progress bar.
+* Model files are cached in:
+
+  ```
+  C:\Users\<your_user>\.cache\huggingface\hub
+  ```
+
+  Next runs will be instant.
+* `distilgpt2` is small → outputs may not always be accurate.
+* It’s **not a chatbot**, just a text generator.
+
+---
+
+## ✅ Next Steps (Future Plan)
+
+* Try larger/fine-tuned models (`gpt2`, `falcon-7b-instruct`, etc.).
+* Fine-tune on Q\&A dataset for more relevant answers.
+* Wrap with a Flask/React frontend.
+* Add Ollama bindings (optional).
+
+---
+
+## 📅 Week-1 Milestone (Completed Today)
+
+* [x] Setup virtual environment
+* [x] Installed Hugging Face + PyTorch
+* [x] Created demo script (`demo.py`)
+* [x] Successfully ran text-generation demo
+* [x] Prepared documentation (`detail.txt`)
+
+---
+
