@@ -66,3 +66,5 @@ def create_pdf(text):
     c.save()
     buffer.seek(0)
     return buffer
+
+

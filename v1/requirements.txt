@@ -4,3 +4,4 @@ torch
 sentencepiece
 PyPDF2
 reportlab
+

@@ -18,3 +18,4 @@ def generate_structured_notes(text):
                 structured_notes += f"- {sentence.strip()}\n"
         structured_notes += "\n"
     return structured_notes
+
