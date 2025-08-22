@@ -1,0 +1,8 @@
+to run this 
+
+1st
+pip install -r requirements.txt
+
+
+2nd
+streamlit run app.py
